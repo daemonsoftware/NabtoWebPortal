@@ -43,7 +43,7 @@
 
 3.	Assumptions and Dependencies
 
-     1.	Server APIs will be provided
-     2.	Designs will be provided
+         1.	Server APIs will be provided
+         2.	Designs will be provided
 
 
