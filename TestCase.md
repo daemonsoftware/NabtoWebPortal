@@ -6,7 +6,7 @@
    *  Click on "Sign up for free"  button
    *  Fill the sign up form with relevant data such as name, email and comment, click Okay singn me up button
    *  **Observed:**  sign up form data is not getting refreshed with a new sign up event
-   
+
 ### TC2 Signup as a new member with AppMyProduct 
 
    *  Load the portal using www.appmyproduct.com
@@ -18,7 +18,7 @@
 
    *  click on the sign in button after registering with AppMyProduct
    *  **Observed**: Displaying signup instead of login form
-   
+
 ### TC4 Docs link in AMP poratl
 
    *  Click on docs link in portals site
