@@ -1,0 +1,21 @@
+
+
+version: '2'
+
+services:
+  local-nginx:
+    build:
+      context: docker-nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80" 
+      #mapping port with docker default port
+
+  local-dynamodb:
+    image: deangiberson/aws-dynamodb-local
+    # build:
+    #   context: docker-dynamodb
+    #   dockerfile: Dockerfile
+    ports:
+      - "8050:8000"
+         #mapping port with docker default port

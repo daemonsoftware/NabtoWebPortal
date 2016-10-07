@@ -1,0 +1,51 @@
+<!-- //This is initial index file that gets loaded for sign up ,sign in and forgot password link -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DailyCred</title>
+</head>
+<!-- including script and css dependencies -->
+<link rel='stylesheet' type='text/css' href='./bootstrap-3.2.0.min.css' />
+
+<script src='./jquery-1.10.2.min.js'></script>
+<script type="text/javascript" src="https://www.dailycred.com/connect.js"></script>
+
+<script>
+//creating  an instance for console
+	C = console.info.bind(console);
+	
+	
+	var _dailycred_client_id = "9b31d2fe-29be-41db-919a-06cd18116ec1";
+	var _dailycred_redirect_uri='http://localhost:3000/#/verify/';
+
+	var _dailycred_response_type="token";
+	var _dailycred_simple_flow=true;
+
+</script>
+
+<body>
+<!-- creation of id and class for css implemenattion-->
+	<div id='details' class='container'>
+	</div>
+<!-- creation of id and class for css implemenattion-->
+	<div id='logins' class='container'>
+	
+	<!-- creation of id and class for css implemenattion-->
+		<h2 class='form-signin-heading'>DailyCred Login</h2>
+
+		<p>
+		<!-- creation of href link for sign in-->
+			<a href='#' class='_dailycred_signin'>Sign in</a>
+		</p>
+
+		<p><!-- creation of href link for sign up-->
+			<a href="#" class="_dailycred_signup">Sign up</a>
+		</p>
+
+		<p><!-- creation of href link for Forgot password-->
+			<a href="#" class="_dailycred_forgot">Forgot password</a>
+		</p>
+	</div>
+</body>
+</html>
