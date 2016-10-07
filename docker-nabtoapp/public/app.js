@@ -1,21 +1,48 @@
-//angular code for routing between pages nad their function goes here
+/**
+   
+   * @name nabtoApp {module}
+   * @param nabtoApp , name of ng-app directive
+   * @param ui.router {service} handles routing between navigation menus
+   * @description  Creats an instance for angular module
+*/
 
-//creating instance for angular module
 var nabtoApp = angular.module('nabtoApp', ['ui.router']);
 
-//creating routes with corresponding url and its controller
+/**
+   
+   * @name config
+   * @memberof nabtoApp
+   * @param stateProvider {service} router provider
+   * @param urlRouteProvider {service} handles default view
+   * @description  providing url for each state and assigning their corresponding controller
+*/
+
 nabtoApp.config(function($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise('/home');
 
 	$stateProvider
 
+	/**
+   
+   * @name verify
+   * @memberof stateProvider
+   * @param  url, path to specific view file
+   * @param  controller, specifies the controller attached with the path 
+   */
+	
 	.state('verify', {
 		url: '/verify*path'
 		// url: '/verify/?access_token'
 		,controller: 'verifyController'
 	})
-
+/**
+   
+   * @name home
+   * @memberof stateProvider
+   * @param  url, path to specific view file
+   * @param  controller, specifies the controller attached with the path 
+   */
 	.state('home', {
 		url: '/home'
 
@@ -28,13 +55,29 @@ nabtoApp.config(function($stateProvider, $urlRouterProvider) {
 	});
 });
 
-//controller for extracting access token and redirecting to home page
+ /**
+   
+   * @name verifyController {controller} 
+   * @memeberof nabtoApp module
+   * @param $scope {service} controller scope
+   * @param $state {service} provides navigation to a view
+   * @param $stateParams {service} access param in url
+   * @param $http{service} facilitates communication with the remote HTTP servers 
+   * @description  verifyController extracts access token from url and
+   * pass it to http.post() and if it is a sucess response it will redirect to home else it throws error message
+   */
 nabtoApp.controller('verifyController', function($scope, $state, $stateParams, $http) {
-	var access_token = $stateParams.path.split('access_token')[1].split('=')[1];//extracting access token
+	var access_token = $stateParams.path.split('access_token')[1].split('=')[1];
 	// C('access_token', access_token);
 
 	$('#loading').show();
-
+/**
+   
+   * @name $http.post{request method}
+   * @memeberof verifyController 
+   * @param access_token
+   
+   */
 	$http.post('/v1/verify', {access_token: access_token})
 	.then(function(resp){
 		$('#loading').hide();
@@ -48,7 +91,7 @@ nabtoApp.controller('verifyController', function($scope, $state, $stateParams, $
 			$state.go('home');//redirecting to home on finding coreesponding email
 		}
 		else {
-			alert('Error - ' + resp.data.message);//error response
+			alert('Error - ' + resp.data.message);
 		}
 	})
 	.catch(function(err){
@@ -57,12 +100,44 @@ nabtoApp.controller('verifyController', function($scope, $state, $stateParams, $
 	})
 });
 
-//ajax call for loading product details according to signed in email is done here
+/**
+   
+   * @name productsController {controller}
+   * @memeberof nabtoApp
+   * @param $scope {service} controller scope
+   * @param $http{service} facilitates communication with the remote HTTP servers 
+   * @description productsController will pass email as param in http.get() and will return  product details based on email passed
+   */
 nabtoApp.controller('productsController', function($scope, $http) {
 	// debugger;
+	
+/**
+   
+   * @name products {array}
+   * @memeberof nabtoApp
+   * @description used to create na array for products
+   
+   */	
+	
+	
 	$scope.products = [];
+	
+/**
+   
+   * @name loading {method}
+   * @memeberof productsController
+   * @description used to display the loasding image
+   
+   */	
 	$('#loading').show();
-
+/**
+   
+   * @name $http.get{request method} 
+   * @memeberof productsController
+   * @param access_token
+   
+   */
+	
 	$http.get('/v1/products'
 	,{
 		params: {
