@@ -1,0 +1,42 @@
+<!-- /This file creating tabelo for account detals after singn in -->
+
+<div class="jumbotron text-center">
+	<h1>Account Details</h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+
+	<!-- creating table  -->
+		<table class='table table-bordered table-striped' ng-hide="products.length==0">
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Domain
+				</th>
+				<th>
+					Tier
+				</th>
+			</tr>
+			
+			<!-- inserting values inside tabel using ng-repeat directive -->
+			<tr ng-repeat="product in products">
+				<td>
+					{{product.name}}
+				</td>
+				<td>
+					{{product.domain}}
+				</td>
+				<td>
+					{{product.tier}}
+				</td>
+			</tr>
+		</table>
+		<div class='well' ng-show="products.length==0">
+				No Products yet. Please add some products.
+		</div>
+	</div>
+
+</div>

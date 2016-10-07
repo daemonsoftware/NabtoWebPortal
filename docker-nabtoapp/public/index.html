@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- this file is index file for amp portal -->
+<html>
+<head>
+	<title>Nabto Web Portal</title>
+
+	<!-- <including css dependencies -->
+	<link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" />
+	<link href="resources/css/loader.css" rel="stylesheet" />
+	<style>
+		.navbar { border-radius:0; }
+	</style>
+	
+	<!-- Including the script files -->
+	
+	<script src='./libs/jquery-2.2.4/jquery-2.2.4.min.js'></script>
+
+	<script type="text/javascript">
+	<!-- creating instance for console() -->
+		C = console.info.bind(console);
+	</script>
+
+	<!-- <script type="text/javascript" src="libs/angular-1.5.8/angular.min.js"></script> -->
+	<script type="text/javascript" src="libs/angular-1.5.8/angular.js"></script>
+	<!-- <script type="text/javascript" src="libs/angular-ui-router-0.2.18/angular-ui-router.min.js"></script> -->
+	<script type="text/javascript" src="libs/angular-ui-router-0.2.18/angular-ui-router.js"></script>
+	<script src="app.js"></script>
+
+</head>
+
+<!-- initilaizing ng-app directive -->
+<body ng-app="nabtoApp">
+<!-- menu bar creation -->
+	<nav class="navbar navbar-inverse" role="navigation">
+
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="#">appmyproduct</a>
+		</div>
+
+		<ul class="nav navbar-nav">
+			<!-- <li><a ui-sref="home">Home</a></li> -->
+		</ul>
+
+	</nav>
+<!-- ui-view will reflect view according to menu selection -->
+	<div class="container">
+		<div ui-view></div>
+	</div>
+<!-- style defined for loader image  -->
+	<div id='loading' style='display: none; margin:auto;' class='uil-default-css' style='transform:scale(1);'><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(30deg) translate(0,-60px);transform:rotate(30deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(60deg) translate(0,-60px);transform:rotate(60deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(120deg) translate(0,-60px);transform:rotate(120deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(150deg) translate(0,-60px);transform:rotate(150deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(210deg) translate(0,-60px);transform:rotate(210deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(240deg) translate(0,-60px);transform:rotate(240deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(300deg) translate(0,-60px);transform:rotate(300deg) translate(0,-60px);border-radius:10px;position:absolute;'></div><div style='top:80px;left:93px;width:14px;height:40px;background:#cccccc;-webkit-transform:rotate(330deg) translate(0,-60px);transform:rotate(330deg) translate(0,-60px);border-radius:10px;position:absolute;'></div></div>
+</body>
+</html>
