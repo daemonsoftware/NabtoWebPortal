@@ -33,8 +33,8 @@ function Server() {
 		/* Credential issue Start
 			* changed by: Pranab
 		*/	
-		accessKeyId: "AKIAI5G5ZISWUAJZWAVQ"									
-		, secretAccessKey: "3CIkcKKJ2/Bbw7e5XWhWv2zHQn1pSvuyWhnceE4E"
+		accessKeyId: "Put your accessKeyId"									
+		, secretAccessKey: "Put your secretAccessKey"
 		// Credential issue End 		
 		, region: "us-west-2"
 		, endpoint: "http://localhost:8050"
