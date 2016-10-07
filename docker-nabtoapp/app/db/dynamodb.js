@@ -1,12 +1,12 @@
-
-//this file is responsible for creating account and getting user deatils  for user in dynamodb after signin/sign up  with dailycred
-
+/* This script is use to create of fetch Items from 'accounts' table 
+*/
 var usersTable = 'accounts';
 
 function DynamoDB(dynamodb) {
 	this.dynamodb = dynamodb;
 };
-//function used to get user related information from dynamodb by using email as key
+
+// getAccount function is used to fetch Item from 'accounts' table
 DynamoDB.prototype.getAccount = function(email, done) {
 	// C(__line, email);
 
@@ -23,7 +23,8 @@ DynamoDB.prototype.getAccount = function(email, done) {
 		}
 	});
 };
-//function used to create user related information in dynamodb 
+
+// getAccount function is used to create new Item in 'accounts' table
 DynamoDB.prototype.createAccount = function(data, done) {
 	this.dynamodb.put({
 		TableName: 'accounts'
@@ -45,5 +46,5 @@ DynamoDB.prototype.createAccount = function(data, done) {
 		}
 	});
 };
-// returned as the result of a require call.
+
 module.exports = DynamoDB;

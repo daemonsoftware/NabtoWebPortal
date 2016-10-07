@@ -1,4 +1,4 @@
-# file responsible for running the application in docker using linux platform 
+# This is the automation script to build and start docker container as well as middleware node application in Linux
 
 #!/bin/bash
 

@@ -1,12 +1,15 @@
-//this file is handling create account nad sign in using dailycred
-
-//including dependencies
+/* This script will take care of the requests based upon the URL Pattern for example '/verify' and '/products'
+ *Modules dependencies
+	* Express Module: Express MVC framework
+	* router Module: It decide how application responds to client request
+	* requestify: Simplifies node HTTP request making
+*/
 var express = require('express')
 	,router = express.Router()
 	,requestify = require('requestify')
 ;
 
-//app.use gets its req res for product routing is done here
+// Serves the request having URL pattern as /products to get product details
 router.get('/products', function(req, res){
 	var db = res.locals.db;
 
@@ -26,8 +29,7 @@ router.get('/products', function(req, res){
 	});
 });
 
-
-//app.get for accessing access token  is done here
+// Serves the request having URL pattern as /verify
 router.post('/verify', function(req, res){
 	var db = res.locals.db;
 
@@ -40,9 +42,6 @@ router.post('/verify', function(req, res){
 	.then(function(response){
 		var body = response.getBody();
 
-/* after sign in ,this function get the details of the logged in user if it is found ,then it will repond with "Getitem succeeded"
-otherwise it will create  a account  */
-
 		db.getAccount(body.email, function(err, data){
 			if (err) {
 				console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
@@ -52,9 +51,7 @@ otherwise it will create  a account  */
 					,message: err.message
 				});
 
-			} 
-			//sucessful fetching  is done using the below code
-			else {
+			} else {
 				console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
 
 				if (data.Item){
@@ -68,7 +65,6 @@ otherwise it will create  a account  */
 						}
 					});
 				}
-				//create account code goes here
 				else {
 					db.createAccount({
 						 id: body.id
@@ -79,7 +75,7 @@ otherwise it will create  a account  */
 						,display: body.display
 						,access_token: body.access_token
 						,products: []
-					}, function(err, data) { //error on adding is returned using the below code
+					}, function(err, data) {
 						if (err) {
 							console.error("Unable to add item. Error JSON:", err);
 							res.json({
@@ -87,7 +83,6 @@ otherwise it will create  a account  */
 								,message: err
 							})
 						} else {
-							//sucessfully added is returned using the below code
 							console.log("Added item:", JSON.stringify(data, null, 2));
 							res.json({
 								success: true
@@ -114,5 +109,5 @@ otherwise it will create  a account  */
 
 });
 
-// returned as the result of a require call.
+// Exposes router module
 module.exports = router;

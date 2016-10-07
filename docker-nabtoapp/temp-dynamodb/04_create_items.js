@@ -1,18 +1,18 @@
-//responsible for creating items using AWS
-
-//including dependencies and creating instance
+/* This script is used to create Items in accounts table 
+*/
 var AWS = require('aws-sdk');
 
-//configuring AWS
 AWS.config.update({
-	accessKeyId: "AKIAI5G5ZISWUAJZWAVQ"									// Credential issue --changed by Pranab
-	,secretAccessKey: "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"		// Credential issue --changed by Pranab
+	/* Credential issue Start
+		* changed by: Pranab
+	*/
+	accessKeyId: "AKIAI5G5ZISWUAJZWAVQ"
+	, secretAccessKey: "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"
+	// Credential issue End
 	,region: 'us-west-2'
 	,endpoint: 'http://localhost:8050'
 });
 
-
-//creating instance for AWS.DynamoDB.DocumentClient()
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 var allAccounts = [
@@ -61,31 +61,20 @@ var allAccounts = [
 	}
 ];
 
-
 allAccounts.forEach(function(user) {
 	var params = {
 		TableName: 'accounts',
 		Item: user
 	};
 
-	
-	//adding user in to the accounts table 
 	docClient.put(params, function(err, data) {
 		if (err) {
-			console.error("Unable to add user", user.email, ". Error JSON:", JSON.stringify(err, null, 2));// an error occurred
+			console.error("Unable to add user", user.email, ". Error JSON:", JSON.stringify(err, null, 2));
 		} else {
-			console.log("PutItem succeeded:", user.email); // successful response
+			console.log("PutItem succeeded:", user.email);
 		}
 	});
 });
-
-
-
-
-
-
-
-
 
 // var allProducts = [
 // 	{

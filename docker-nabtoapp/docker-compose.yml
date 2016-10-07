@@ -1,21 +1,20 @@
-
-
+# Configuration including the port Mapping details of Docker containers
 version: '2'
 
+# Configuration for customized nginx container 
 services:
   local-nginx:
     build:
       context: docker-nginx
       dockerfile: Dockerfile
     ports:
-      - "8088:80" 
-      #mapping port with docker default port
+      - "8088:80"
 
+ # Configuration for aws-local-dynamodb container
   local-dynamodb:
-    image: deangiberson/aws-dynamodb-local
+    image: deangiberson/aws-dynamodb-local    
     # build:
     #   context: docker-dynamodb
     #   dockerfile: Dockerfile
     ports:
       - "8050:8000"
-         #mapping port with docker default port
