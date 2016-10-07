@@ -1,22 +1,22 @@
+
 <!DOCTYPE html>
-<!-- this file is index file for amp portal -->
+<!-- this file will hold the main template for our app -->
 <html>
 <head>
 	<title>Nabto Web Portal</title>
 
-	<!-- <including css dependencies -->
+<!-- css (load bootstrap and loader css file) -->
 	<link href="libs/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" />
 	<link href="resources/css/loader.css" rel="stylesheet" />
 	<style>
 		.navbar { border-radius:0; }
 	</style>
-	
-	<!-- Including the script files -->
+<!-- JS (load angular, ui-router,jquery and our custom js file) -->
 	
 	<script src='./libs/jquery-2.2.4/jquery-2.2.4.min.js'></script>
 
 	<script type="text/javascript">
-	<!-- creating instance for console() -->
+<!-- creating instance for console() -->
 		C = console.info.bind(console);
 	</script>
 
@@ -28,10 +28,10 @@
 
 </head>
 
-<!-- initilaizing ng-app directive -->
-<body ng-app="nabtoApp">
-<!-- menu bar creation -->
-	<nav class="navbar navbar-inverse" role="navigation">
+<!-- apply our angular app to our site -->
+    <body ng-app="nabtoApp">
+<!-- creating nav bar -->
+	   <nav class="navbar navbar-inverse" role="navigation">
 
 		<div class="navbar-header">
 			<a class="navbar-brand" ui-sref="#">appmyproduct</a>
@@ -41,7 +41,7 @@
 			<!-- <li><a ui-sref="home">Home</a></li> -->
 		</ul>
 
-	</nav>
+	  </nav>
 <!-- ui-view will reflect view according to menu selection -->
 	<div class="container">
 		<div ui-view></div>
